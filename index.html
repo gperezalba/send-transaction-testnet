@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>(TestNet) Transaction Sender</title>
+    <script charset="utf-8"
+        src="https://cdn.ethers.io/scripts/ethers-v4.min.js"
+        type="text/javascript">
+    </script>
+    <script type="text/javascript">
+        const URL = "http://52.28.106.166:23001";
+
+        async function sendSignedTransaction(){
+            let signedTransaction = document.getElementById("signedTx").value;
+            const customHttpProvider = getProvider();
+            let response = await customHttpProvider.sendTransaction(signedTransaction);
+            console.log(await response.wait());
+        }
+
+        function getProvider() {
+            return new ethers.providers.JsonRpcProvider(URL);
+        }
+    </script>
+  </head>
+  <body>
+    <h4>Insertar TRANSACCIÓN FIRMADA</h4>
+    <input type="text" size="175" id="signedTx" placeholder="Insertar transacción firmada">
+    <br>
+    <br>
+    <button onclick="sendSignedTransaction();">ENVIAR</button>
+  </body>
+</html>
