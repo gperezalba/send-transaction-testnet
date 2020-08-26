@@ -23,10 +23,61 @@
     </script>
   </head>
   <body>
-    <h4>Insertar TRANSACCIÓN FIRMADA</h4>
-    <input type="text" size="175" id="signedTx" placeholder="Insertar transacción firmada">
-    <br>
-    <br>
-    <button onclick="sendSignedTransaction();">ENVIAR</button>
+  <style type='text/css'>
+        body {
+            background-color: grey
+        }
+        
+        h2 {
+            color: red;
+        }
+
+        .myButton {
+            box-shadow: 0px 1px 0px 0px #fff6af;
+            background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+            background-color:#ffec64;
+            border-radius:6px;
+            border:1px solid #ffaa22;
+            display:inline-block;
+            cursor:pointer;
+            color:#333333;
+            font-family:Arial;
+            font-size:15px;
+            font-weight:bold;
+            padding:6px 24px;
+            text-decoration:none;
+            text-shadow:0px 1px 0px #ffee66;
+        }
+        .myButton:hover {
+            background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+            background-color:#ffab23;
+        }
+        .myButton:active {
+            position:relative;
+            top:1px;
+        }
+
+        .redondeadonorelieve {
+            border-radius: 5px;
+            border: 1px solid #39c;
+            text-align: center;
+            line-height: 30px;
+        }
+
+        .center {
+            margin: auto;
+            padding: 10px;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+    <div class="center">
+      <h4>Insertar TRANSACCIÓN FIRMADA</h4>
+      <input class="redondeadonorelieve" type="text" size="175" id="signedTx" placeholder="Insertar transacción firmada">
+      <br>
+      <br>
+      <button class="myButton" onclick="sendSignedTransaction();">ENVIAR</button>
+    </div>
   </body>
 </html>
