@@ -13,8 +13,15 @@
         async function sendSignedTransaction(){
             let signedTransaction = document.getElementById("signedTx").value;
             const customHttpProvider = getProvider();
-            let response = await customHttpProvider.sendTransaction(signedTransaction);
-            console.log(await response.wait());
+            try {
+                let response = await customHttpProvider.sendTransaction(signedTransaction);
+                let receipt = response.wait();
+                console.log(receipt);
+                document.getElementById("response").innerHTML = receipt;
+            } catch(err) {
+                console.error(err.message);
+                document.getElementById("response").innerHTML = err.message;
+            }
         }
 
         function getProvider() {
@@ -78,6 +85,9 @@
       <br>
       <br>
       <button class="myButton" onclick="sendSignedTransaction();">ENVIAR</button>
+      <br>
+      <br>
+      <p id="response"></p>
     </div>
   </body>
 </html>
